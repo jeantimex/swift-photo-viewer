@@ -8,6 +8,7 @@ target 'Swift Photo Viewer' do
   # Pods for Swift Photo Viewer
   pod 'Alamofire', '~> 4.4.0'
   pod 'AlamofireImage', '~> 3.2.0'
+  pod 'Cartography', '~> 1.1.0'
 
   target 'Swift Photo ViewerTests' do
     inherit! :search_paths
