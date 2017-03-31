@@ -8,7 +8,11 @@
 
 import UIKit
 
+private let photoCellIdentifier = "PhotoCell"
+
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    var photosManager: PhotosManager { return .shared }
 
     var collectionView: UICollectionView!
     
@@ -22,21 +26,20 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(PhotoListCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(PhotoListCell.self, forCellWithReuseIdentifier: photoCellIdentifier)
         collectionView.backgroundColor = UIColor.white
         
         self.view.addSubview(collectionView)
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 14
+        return photosManager.photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath) as! PhotoListCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath as IndexPath) as! PhotoListCell
         
-        cell.textLabel.text = "Text"
-        cell.imageView.image = UIImage(named: "star")
+        cell.configure(with: photosManager.photos[indexPath.row])
         
         return cell
     }

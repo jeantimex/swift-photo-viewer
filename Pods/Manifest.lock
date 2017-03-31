@@ -2,15 +2,18 @@ PODS:
   - Alamofire (4.4.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
+  - Cartography (1.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4.0)
   - AlamofireImage (~> 3.2.0)
+  - Cartography
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  Cartography: 0538ccb4044acbbda2266335fc58cb4228794d90
 
-PODFILE CHECKSUM: a99d3a8233d03dc4d3d06adfaad3b19f283e334c
+PODFILE CHECKSUM: e0231c770cb7afa2c17e126db76e0bc3edc8daf9
 
 COCOAPODS: 1.1.0.rc.2
