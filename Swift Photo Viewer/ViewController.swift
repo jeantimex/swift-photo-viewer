@@ -22,7 +22,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(PhotoListCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = UIColor.white
         
         self.view.addSubview(collectionView)
@@ -33,9 +33,10 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath) as! PhotoListCell
         
-        cell.backgroundColor = UIColor.orange
+        cell.textLabel.text = "Text"
+        cell.imageView.image = UIImage(named: "star")
         
         return cell
     }
